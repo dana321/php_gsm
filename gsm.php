@@ -76,8 +76,8 @@ class Gsm {
 	public function AtCommand($requete,$reponse = 'OK',$timeout = 1){
 		if($this->_etat_com == true){
 			$chr = false;
-			$debut = $this->_timestamp_sec();
-			$fin	 = $debut + $timeout;
+			$start = $this->_timestamp_sec();
+			$fin	 = $start + $timeout;
 			$GLOBALS['serial']->sendMessage($requete."\r\n");
 			while($chr == False && $fin > $this->_timestamp_sec()){
 				$chr = stripos($GLOBALS['serial']->readPort(), $reponse);
